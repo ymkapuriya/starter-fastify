@@ -1,0 +1,28 @@
+{
+  "name": "fastify-starter",
+  "version": "1.0.0",
+  "description": "fastify-starter-app",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap test/**/*.test.js",
+    "start": "fastify start -l info app.js",
+    "dev": "fastify start -l info -P app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^2.2.0",
+    "fastify-plugin": "^1.5.0",
+    "fastify-autoload": "^0.6.0",
+    "fastify-cli": "^1.0.0",
+    "@now-ims/fastify-firestore": "^1.0.0",
+    "eslint": "^5.16.0"
+  },
+  "devDependencies": {
+    "tap": "^12.5.3"
+  }
+}
