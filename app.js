@@ -23,6 +23,16 @@ module.exports = function (fastify, opts, next) {
     options: Object.assign({}, opts)
   })
 
+  /**
+     * Allow cors requests
+     */
+  fastify.register(require('fastify-cors'), {
+    // put your options here
+    origin: "http://127.0.0.1:8081",
+    methods: ['GET', 'POST']
+  })
+
+
   // Make sure to call next when done
   next()
 }

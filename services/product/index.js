@@ -18,16 +18,22 @@ module.exports = async function routes(fastify, options, next) {
                 .then((snapshot) => {
                     snapshot.forEach((doc) => {
                         //console.log(doc.id, '=>', doc.data())
+                        let product = doc.data()
+                        product.id = doc.id
+                        products.push(product)
+                        /*
                         products.push({
                             [doc.id]: doc.data()
                         })
+                        */
                     });
                 })
                 .catch((err) => {
                     //console.log('Error getting documents', err);
                     reply.send(err);
                 })
-            await reply.send(products)
+            //console.log(products)
+            await reply.send({ products: products })
         }
     )
 
