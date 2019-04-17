@@ -17,12 +17,12 @@ module.exports = async function routes(fastify, options, next) {
             await fastify.fs.collection('users').get()
                 .then((snapshot) => {
                     snapshot.forEach((doc) => {
-                        console.log(doc.id, '=>', doc.data())
+                        //console.log(doc.id, '=>', doc.data())
                         users.push({ [doc.id]: doc.data() })
                     });
                 })
                 .catch((err) => {
-                    console.log('Error getting documents', err);
+                    //console.log('Error getting documents', err);
                     reply.send(err);
                 })
             await reply.send(users)
@@ -36,13 +36,13 @@ module.exports = async function routes(fastify, options, next) {
             let user = {}
             await fastify.fs.collection('users').doc(id).get()
                 .then((doc) => {
-                    console.log(doc.id, '=>', doc.data())
+                    //console.log(doc.id, '=>', doc.data())
                     if (doc.exists) {
                         user = doc.data()
                     }
                 })
                 .catch((err) => {
-                    console.log('Error getting document', err);
+                    //console.log('Error getting document', err);
                     reply.send(err);
                 })
             await reply.send(user)
